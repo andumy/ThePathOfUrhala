@@ -13,20 +13,23 @@ class Combo
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'combos')]
+    #[ORM\JoinColumn(nullable: false)]
     private $firstIngredient;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'combos')]
+    #[ORM\JoinColumn(nullable: false)]
     private $secondIngredient;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'combos')]
+    #[ORM\JoinColumn(nullable: false)]
     private $result;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $effect;
 
     #[ORM\Column(type: 'boolean')]
-    private $capped;
+    private $isCapped;
 
     #[ORM\Column(type: 'integer')]
     private $deto;
@@ -45,36 +48,36 @@ class Combo
         return $this->id;
     }
 
-    public function getFirstIngredient(): ?string
+    public function getFirstIngredient(): ?Element
     {
         return $this->firstIngredient;
     }
 
-    public function setFirstIngredient(string $firstIngredient): self
+    public function setFirstIngredient(?Element $firstIngredient): self
     {
         $this->firstIngredient = $firstIngredient;
 
         return $this;
     }
 
-    public function getSecondIngredient(): ?string
+    public function getSecondIngredient(): ?Element
     {
         return $this->secondIngredient;
     }
 
-    public function setSecondIngredient(string $secondIngredient): self
+    public function setSecondIngredient(?Element $secondIngredient): self
     {
         $this->secondIngredient = $secondIngredient;
 
         return $this;
     }
 
-    public function getResult(): ?string
+    public function getResult(): ?Element
     {
         return $this->result;
     }
 
-    public function setResult(string $result): self
+    public function setResult(?Element $result): self
     {
         $this->result = $result;
 
@@ -93,14 +96,14 @@ class Combo
         return $this;
     }
 
-    public function getCapped(): ?bool
+    public function getIsCapped(): ?bool
     {
-        return $this->capped;
+        return $this->isCapped;
     }
 
-    public function setCapped(bool $capped): self
+    public function setIsCapped(bool $isCapped): self
     {
-        $this->capped = $capped;
+        $this->isCapped = $isCapped;
 
         return $this;
     }

@@ -36,15 +36,29 @@ class ComboRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Combo
+
+    /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByIngredients(string $firstIngredient, string $secondIngredient)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb = $this->createQueryBuilder('c');
+        $qb->where(
+            $qb->expr()->orX(
+                $qb->expr()->andX(
+                    $qb->expr()->eq('c.firstIngredient', ':firstIngredient'),
+                    $qb->expr()->eq('c.secondIngredient', ':secondIngredient'),
+                ),
+                $qb->expr()->andX(
+                    $qb->expr()->eq('c.firstIngredient', ':secondIngredient'),
+                    $qb->expr()->eq('c.secondIngredient', ':firstIngredient'),
+                )
+            )
+        )
+            ->setParameter('firstIngredient', $firstIngredient)
+            ->setParameter('secondIngredient', $secondIngredient);
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
-    */
+
 }

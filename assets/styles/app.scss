@@ -1,3 +1,16 @@
 body {
     background-color: #ecf0f1;
 }
+
+.global{
+    &__result{
+        min-height: 20vh;
+    }
+}
+
+h3{
+    color: #79419c;
+}
+.red{
+    color: #c91d1d;
+}

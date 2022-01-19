@@ -11,5 +11,4 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './js/bootstrap.min';
-import './js/lock';
 

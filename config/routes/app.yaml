@@ -1,4 +1,19 @@
 app:
   path: /
-  methods: GET|POST
+  methods: GET
   controller: App\Controller\AppController::index
+
+combine:
+  path: /combine
+  methods: POST
+  controller: App\Controller\AppController::combine
+
+runebuilder:
+  path: /runebuilder
+  methods: GET
+  controller: App\Controller\AppController::rune
+
+runebuilder_save:
+  path: /runebuilder/save
+  methods: POST
+  controller: App\Controller\AppController::runeSave
