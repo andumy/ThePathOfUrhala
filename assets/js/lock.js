@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 document.querySelector('#name').innerHTML = data.data.name;
                 document.querySelector('#effect').innerHTML = data.data.effect;
-                document.querySelector('#isCapped').isCapped = data.data.isCapped;
+                document.querySelector('#isCapped').innerHTML = data.data.isCapped;
                 document.querySelector('#errorMessage').innerHTML = data.data.errorMessage;
             })
     })

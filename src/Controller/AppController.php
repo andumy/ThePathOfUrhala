@@ -78,7 +78,7 @@ class AppController extends AbstractController
             'wasUsed' => 0
         ]);
         if($isAvailable){
-            new JsonResponse([
+            return new JsonResponse([
                 'message' => 'Existing unused Hash'
             ]);
         }

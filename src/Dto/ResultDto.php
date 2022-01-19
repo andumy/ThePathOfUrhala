@@ -97,7 +97,7 @@ class ResultDto
      */
     public function getIsCapped(): string
     {
-        return $this->isCapped ? '<i class="fas fa-ban"></i>' : '';
+        return $this->isCapped ? '<i class="fas fa-ban h2"></i>' : '';
     }
 
 
