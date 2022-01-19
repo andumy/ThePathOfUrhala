@@ -1,0 +1,4 @@
+app:
+  path: /
+  methods: GET|POST
+  controller: App\Controller\AppController::index
