@@ -1,16 +1,41 @@
 body {
     background-color: #ecf0f1;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
 }
-
-.global{
-    &__result{
-        min-height: 20vh;
-    }
+.noshrink{
+    flex-shrink: 0;
 }
-
 h3, i{
     color: #79419c;
 }
 .red{
     color: #c91d1d;
+}
+
+.top{
+    width: 100px;
+    height: 100px;
+    background-color: #79419c;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 100px;
+    right: 100px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    i{
+        color: white;
+        font-size: 30px;
+    }
+}
+
+.global__content{
+    height: 100px;
 }

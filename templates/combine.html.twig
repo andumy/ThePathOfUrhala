@@ -4,60 +4,53 @@
     {{ encore_entry_script_tags('lock') }}
 {% endblock %}
 {% block body %}
-    <div class="d-flex justify-content-center align-items-center w-100 text-center py-4">
-        <h1>The Path Of Urhala - Alchizon</h1>
-    </div>
-    <div class="global__result d-flex justify-content-center align-items-center flex-column">
+
+    <div class="d-flex justify-content-center align-items-center w-100 text-center pt-4 pb-1 global__content flex-column">
         <h3 id="name"></h3>
         <p id="effect"></p>
+        <p id="requirments"></p>
         <div id="isCapped"></div>
         <p class="red" id="errorMessage"></p>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3 col-12">
-                <div class="d-flex justify-content-center align-items-center w-100">
-                    <form class="d-flex justify-content-center align-items-center flex-column w-100" id="formCombo">
-                        <div class="d-flex flex-row py-5">
-                            <div class="d-flex flex-column px-4">
-                                <label for="firstIngredient">First Ingredient</label>
-                                <select name="firstIngredient" id="firstIngredient" class="form-control">
-                                    {% for element in elements %}
-                                        <option value="{{ element.getId() }}">{{ element.getName() }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="d-flex flex-column px-4">
-                                <label for="secondIngredient">Second Ingredient</label>
-                                <select name="secondIngredient" id="secondIngredient" class="form-control">
-                                    {% for element in elements %}
-                                        <option value="{{ element.getId() }}">{{ element.getName() }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="d-flex justify-content-center align-items-center w-100">
+                <form class="d-flex justify-content-center align-items-center flex-column w-100" id="formCombo">
+                    <div class="d-flex flex-row py-2 align-items-center justify-content-center">
+                        <div class="d-flex flex-column h-100 justify-content-center align-items-center px-4">
+                            <label for="firstIngredient" class="py-3 noshrink">First Element</label>
+                            <label for="secondIngredient"  class="py-3 noshrink">Second Element</label>
                         </div>
-                        <div class="d-flex py-1 justify-content-center align-items-center">
-                            <label for="deto" class="w-100">Deto points</label>
-                            <input type="number" min="0" name="deto" id="deto" class="form-control" value="0">
+                        <div class="d-flex flex-column px-4 h-100 justify-content-center align-items-center">
+                            <select name="firstIngredient" id="firstIngredient" class="form-control p-2 my-2">
+                                {% for element in elements %}
+                                    <option value="{{ element.getId() }}">{{ element.getName() }}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="secondIngredient" id="secondIngredient" class="form-control p-2 my-2">
+                                {% for element in elements %}
+                                    <option value="{{ element.getId() }}">{{ element.getName() }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
-                        <div class="d-flex py-1 justify-content-center align-items-center">
-                            <label for="mozo" class="w-100">Mozo points</label>
-                            <input type="number" min="0" name="mozo" id="mozo" class="form-control" value="0">
-                        </div>
-                        <div class="d-flex py-1 justify-content-center align-items-center">
-                            <label for="ruto" class="w-100">Ruto points</label>
-                            <input type="number" min="0" name="ruto" id="ruto" class="form-control" value="0">
-                        </div>
-                        <div class="d-flex py-1 justify-content-center align-items-center">
-                            <label for="crylo" class="w-100">Crylo points</label>
-                            <input type="number" min="0" name="crylo" id="crylo" class="form-control" value="0">
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="d-flex py-1 justify-content-start align-items-center text-end w-100">
+                        <label for="deto" class="px-4 noshrink">Deto points</label>
+                        <input type="number" pattern="\d*" min="0" max="5" name="deto" id="deto" class="form-control">
+                        <label for="mozo" class="px-4 noshrink">Mozo points</label>
+                        <input type="number" pattern="\d*" min="0" max="5" name="mozo" id="mozo" class="form-control">
+                    </div>
+                    <div class="d-flex py-1 justify-content-start align-items-center text-end w-100">
+                        <label for="ruto" class="px-4 noshrink">Ruto points</label>
+                        <input type="number" pattern="\d*" min="0" max="5" name="ruto" id="ruto" class="form-control">
+                        <label for="crylo" class="px-4 noshrink">Crylo points</label>
+                        <input type="number" pattern="\d*" min="0" max="5" name="crylo" id="crylo" class="form-control">
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-    <div class="d-flex w-100 justify-content-center align-content-center">
-        <canvas id='patternLock'></canvas>
+        <div class="d-flex justify-content-center align-items-center">
+            <canvas id='patternLock'></canvas>
+        </div>
     </div>
 {% endblock %}

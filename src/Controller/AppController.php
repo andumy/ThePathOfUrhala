@@ -48,7 +48,8 @@ class AppController extends AbstractController
                     'name' => $resultDto->getName(),
                     'effect' => $resultDto->getEffect(),
                     'errorMessage' => $resultDto->getErrorMessage(),
-                    'isCapped' => $resultDto->getIsCapped()
+                    'isCapped' => $resultDto->getIsCapped(),
+                    'requirments' => $resultDto->getRequirments()
                 ]
             ]);
         }
@@ -58,7 +59,8 @@ class AppController extends AbstractController
                 'name' => '',
                 'effect' => '',
                 'errorMessage' => 'Wrong rune',
-                'isCapped' => ''
+                'isCapped' => '',
+                'requirments' => ''
             ]
         ]);
     }

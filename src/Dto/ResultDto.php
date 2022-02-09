@@ -11,6 +11,7 @@ class ResultDto
     private bool $isSuccess;
     private string $errorMessage;
     private bool $isCapped;
+    private string $requirments;
 
     public function __construct(?Combo $combo, CombineDto $combineDto){
         if($combo == null){
@@ -19,20 +20,25 @@ class ResultDto
             $this->isCapped = false;
             $this->name = '';
             $this->effect = '';
-        }
-        if($this->canMorph($combo,$combineDto)){
-            $this->isSuccess = true;
-            $this->errorMessage = '';
-            $this->isCapped = $combo->getIsCapped();
-            $this->name = $combo->getResult()->getName();
-            $this->effect = $combo->getEffect();
+            $this->requirments = '';
         } else {
-            $this->isSuccess = false;
-            $this->errorMessage = $this->computeErrorMessage($combo,$combineDto);
-            $this->isCapped = false;
-            $this->name = '';
-            $this->effect = '';
+            if($this->canMorph($combo,$combineDto)){
+                $this->isSuccess = true;
+                $this->errorMessage = '';
+                $this->isCapped = $combo->getIsCapped();
+                $this->name = $combo->getResult()->getName();
+                $this->effect = $combo->getEffect();
+                $this->requirments = "Crylo:{$combo->getCrylo()} , Deto:{$combo->getDeto()} , Mozo:{$combo->getMozo()} , Ruto:{$combo->getRuto()} ";
+            } else {
+                $this->isSuccess = false;
+                $this->errorMessage = $this->computeErrorMessage($combo,$combineDto);
+                $this->isCapped = false;
+                $this->name = '';
+                $this->effect = '';
+                $this->requirments = '';
+            }
         }
+
     }
 
     private function canMorph(Combo $combo, CombineDto $combineDto): bool{
@@ -100,6 +106,13 @@ class ResultDto
         return $this->isCapped ? '<i class="fas fa-ban h2"></i>' : '';
     }
 
+    /**
+     * @return string
+     */
+    public function getRequirments(): string
+    {
+        return $this->requirments;
+    }
 
 
 }
