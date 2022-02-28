@@ -20,6 +20,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@phenax/pattern-lock-js": "^0.1.1",
-        "@popperjs/core": "^2.11.2"
+        "@popperjs/core": "^2.11.2",
+        "datatables.net": "^1.11.5",
+        "datatables.net-dt": "^1.11.5",
+        "jquery": "^3.6.0"
     }
 }

@@ -10,6 +10,7 @@ class ResultDto
     private string $effect;
     private bool $isSuccess;
     private string $errorMessage;
+    private string $cooldown;
     private bool $isCapped;
     private string $requirments;
 
@@ -19,6 +20,7 @@ class ResultDto
             $this->errorMessage = 'The combination generated just some smoke and a fart smell';
             $this->isCapped = false;
             $this->name = '';
+            $this->cooldown = '';
             $this->effect = '';
             $this->requirments = '';
         } else {
@@ -27,6 +29,7 @@ class ResultDto
                 $this->errorMessage = '';
                 $this->isCapped = $combo->getIsCapped();
                 $this->name = $combo->getResult()->getName();
+                $this->cooldown = $combo->getCooldown();
                 $this->effect = $combo->getEffect();
                 $this->requirments = "Crylo:{$combo->getCrylo()} , Deto:{$combo->getDeto()} , Mozo:{$combo->getMozo()} , Ruto:{$combo->getRuto()} ";
             } else {
@@ -34,6 +37,7 @@ class ResultDto
                 $this->errorMessage = $this->computeErrorMessage($combo,$combineDto);
                 $this->isCapped = false;
                 $this->name = '';
+                $this->cooldown = '';
                 $this->effect = '';
                 $this->requirments = '';
             }
@@ -112,6 +116,14 @@ class ResultDto
     public function getRequirments(): string
     {
         return $this->requirments;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCooldown(): ?string
+    {
+        return $this->cooldown;
     }
 
 

@@ -1,0 +1,33 @@
+{% extends 'app.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('combo') }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            $('#combos').initDataTables({{ datatable_settings(table) }}, {
+                searching: true,
+                language: {
+                    search: "Search: "
+                },
+                deferRender: true,
+                scroller: true,
+                pagination: false
+            }).then(() => {
+                window.attachSaveListeners();
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center align-items-center w-100 mt-5 p-5">
+                    <div id="combos" class="w-100">
+                        Loading ...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

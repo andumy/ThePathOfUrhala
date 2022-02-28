@@ -23,7 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('lock', './assets/js/lock.js')
     .addEntry('lockAdmin', './assets/js/lockAdmin.js')
-
+    .addEntry('combo', './assets/js/combo.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -72,6 +72,15 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+    // jQuery load
+    .autoProvidejQuery()
+
+    // make $ and jQuery vars globally accessible
+    .autoProvideVariables({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

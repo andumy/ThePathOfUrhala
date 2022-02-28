@@ -43,6 +43,9 @@ class Combo
     #[ORM\Column(type: 'integer')]
     private $crylo;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $cooldown;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -152,6 +155,18 @@ class Combo
     public function setCrylo(int $crylo): self
     {
         $this->crylo = $crylo;
+
+        return $this;
+    }
+
+    public function getCooldown(): ?string
+    {
+        return $this->cooldown;
+    }
+
+    public function setCooldown(?string $cooldown): self
+    {
+        $this->cooldown = $cooldown;
 
         return $this;
     }

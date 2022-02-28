@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const inputs = document.querySelectorAll('input');
     for (const input of inputs) {
-        input.addEventListener('focusout',() =>{
+        input.addEventListener('change',() =>{
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
     }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(data => {
                 document.querySelector('#name').innerHTML = data.data.name;
-                document.querySelector('#effect').innerHTML = data.data.effect;
+                document.querySelector('#effect').innerHTML = `${data.data.effect} ${data.data.cooldown}`;
                 document.querySelector('#isCapped').innerHTML = data.data.isCapped;
                 document.querySelector('#errorMessage').innerHTML = data.data.errorMessage;
                 document.querySelector('#requirments').innerHTML = data.data.requirments;

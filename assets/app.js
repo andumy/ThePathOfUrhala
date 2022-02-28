@@ -6,6 +6,8 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+
+
 import './styles/bootstrap.min.css';
 import './styles/app.scss';
 import './styles/fontawesome/css/fontawesome.min.css';
@@ -13,4 +15,4 @@ import './styles/fontawesome/css/all.min.css';
 
 // start the Stimulus application
 import './js/bootstrap.min';
-
+import './js/global.js'

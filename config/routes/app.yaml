@@ -17,3 +17,13 @@ runebuilder_save:
   path: /runebuilder/save
   methods: POST
   controller: App\Controller\AppController::runeSave
+
+combo:
+  path: /runebuilder/combo
+  methods: GET|POST
+  controller: App\Controller\AppController::combo
+
+combo_save:
+  path: /runebuilder/combo_save
+  methods: POST
+  controller: App\Controller\AppController::comboSave

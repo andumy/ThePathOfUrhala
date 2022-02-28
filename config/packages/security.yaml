@@ -37,6 +37,7 @@ security:
     access_control:
         - { path: ^/runebuilder, roles: ROLE_USER }
         - { path: ^/runebuilder/save, roles: ROLE_USER }
+        - { path: ^/runebuilder/combo, roles: ROLE_USER }
 
 when@test:
     security:
