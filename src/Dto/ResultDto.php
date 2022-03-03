@@ -29,8 +29,8 @@ class ResultDto
                 $this->errorMessage = '';
                 $this->isCapped = $combo->getIsCapped();
                 $this->name = $combo->getResult()->getName();
-                $this->cooldown = $combo->getCooldown();
-                $this->effect = $combo->getEffect();
+                $this->cooldown = $combo->getCooldown() ?? '';
+                $this->effect = $combo->getEffect() ?? '';
                 $this->requirments = "Crylo:{$combo->getCrylo()} , Deto:{$combo->getDeto()} , Mozo:{$combo->getMozo()} , Ruto:{$combo->getRuto()} ";
             } else {
                 $this->isSuccess = false;
